@@ -1,4 +1,4 @@
-# ⌚ Reloj Digital — Cyberpunk Alarm Clock
+# Reloj Digital — Cyberpunk Alarm Clock
 
 > Un reloj digital interactivo con estilo cyberpunk-neón, sistema de alarmas y soporte para modo claro/oscuro. Proyecto personal para aprender JavaScript, HTML y CSS.
 
@@ -9,7 +9,7 @@
 
 ---
 
-## ✨ Funcionalidades
+## Funcionalidades
 
 - **Reloj en vivo** — Hora actualizada en tiempo real con formato HH:MM:SS AM/PM y fecha.
 - **Sistema de alarmas** — Agrega alarmas personalizadas, suenan con un efecto visual pulsante.
@@ -21,7 +21,7 @@
 
 ---
 
-## 🚀 Cómo usar
+## Cómo usar
 
 1. Clona el repositorio:
    ```bash
@@ -35,7 +35,7 @@
 
 ---
 
-## 🧠 Lo que aprendí (JavaScript)
+## Lo que aprendí (JavaScript)
 
 | Concepto | Aplicación |
 |----------|------------|
@@ -49,7 +49,7 @@
 | `padStart` | Formateo de dígitos con doble cero |
 | `toLocaleTimeString` | Obtención del sufijo AM/PM |
 
-## 🎨 Lo que aprendí (CSS)
+## Lo que aprendí (CSS)
 
 | Concepto | Aplicación |
 |----------|------------|
@@ -66,7 +66,7 @@
 
 ---
 
-## 📁 Estructura del proyecto
+## Estructura del proyecto
 
 ```
 reloj-digital/
@@ -80,7 +80,7 @@ reloj-digital/
 
 ---
 
-## 🎨 Temas
+## Temas
 
 ### 🌑 Oscuro (default)
 Fondo azul profundo con resplandores cian, magenta y dorado, líneas de scan CRT y cuadrícula retro — inspirado en la estética cyberpunk.
@@ -92,7 +92,7 @@ El cambio de tema es instantáneo y se recuerda entre sesiones gracias a `localS
 
 ---
 
-## 📄 Licencia
+## Licencia
 
 Distribuido bajo licencia MIT. Consulta el archivo `LICENSE` para más detalles.
 
