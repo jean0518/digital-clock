@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reloj Digital</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">☾</button>
+    <main>
+        <div class="containterReloj">
+            <div class="contDate">
+                <div class="fecha"></div>
+                <div class="reloj"></div>
+            </div>
+            <div class="ViewAlarms">
+                <div class="alarm-header">◆ ALARMAS ◆</div>
+                <div class="alarm-input-group">
+                    <input type="time" id="AñadirAlarma" class="inputAlarma" value="00:00">
+                    <button class="ButtonEnviarAlarma">+</button>
+                </div>
+                <ul class="ListaAlarmas"></ul>
+            </div>
+            <button class="Hora">⌨ VER HORA</button>
+            <button class="Alarma">⏰ ALARMA</button>
+        </div>
+        <div class="AlertAlarm"></div>
+    </main>
+    <script src="reloj.js"></script>
+</body>
+</html>
