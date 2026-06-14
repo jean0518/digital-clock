@@ -1,426 +1,177 @@
 :root {
-    --bg: #050510;
-    --surface: #0a0a20;
-    --surface2: #0e0e30;
-    --surface3: #12123a;
-    --neon-cyan: #00f0ff;
-    --neon-magenta: #ff00aa;
-    --neon-yellow: #ffd700;
-    --text: #e0e0ff;
-    --text-dim: #6a6aaa;
-    --glow-cyan: 0 0 7px #00f0ff, 0 0 20px rgba(0,240,255,0.4), 0 0 50px rgba(0,240,255,0.15);
-    --glow-magenta: 0 0 7px #ff00aa, 0 0 20px rgba(255,0,170,0.4), 0 0 50px rgba(255,0,170,0.15);
-    --glow-yellow: 0 0 7px #ffd700, 0 0 20px rgba(255,215,0,0.3);
-    --border-neon: 1px solid rgba(0,240,255,0.15);
-    --btn-bg: #0e0e30;
-    --btn-hover: #1a1a50;
-    --overlay-bg: rgba(5,5,16,0.85);
-    --scan: 0.04;
-    --grid: 0.06;
+ --b:#050510;--s:#0a0a20;--s2:#0e0e30;--s3:#12123a;
+ --c:#00f0ff;--m:#ff00aa;--y:#ffd700;--t:#e0e0ff;--d:#6a6aaa;
+ --gc:0 0 7px#00f0ff,0 0 20px rgba(0,240,255,.4),0 0 50px rgba(0,240,255,.15);
+ --gm:0 0 7px#ff00aa,0 0 20px rgba(255,0,170,.4),0 0 50px rgba(255,0,170,.15);
+ --gy:0 0 7px#ffd700,0 0 20px rgba(255,215,0,.3);
+ --bn:1px solid rgba(0,240,255,.15);
+ --bb:#0e0e30;--bh:#1a1a50;--ob:rgba(5,5,16,.85);--sc:.04;--gr:.06
 }
-
 body.light {
-    --bg: #e8eaf0;
-    --surface: #f5f5fa;
-    --surface2: #eaeaf2;
-    --surface3: #dddde8;
-    --neon-cyan: #0077aa;
-    --neon-magenta: #cc0088;
-    --neon-yellow: #bb9900;
-    --text: #1a1a2e;
-    --text-dim: #7a7aaa;
-    --glow-cyan: none;
-    --glow-magenta: none;
-    --glow-yellow: none;
-    --border-neon: 1px solid rgba(0,119,170,0.12);
-    --btn-bg: #dddde8;
-    --btn-hover: #d0d0dd;
-    --overlay-bg: rgba(0,0,0,0.3);
-    --scan: 0;
-    --grid: 0;
+ --b:#e8eaf0;--s:#f5f5fa;--s2:#eaeaf2;--s3:#dddde8;
+ --c:#0077aa;--m:#cc0088;--y:#bb9900;--t:#1a1a2e;--d:#7a7aaa;
+ --gc:none;--gm:none;--gy:none;
+ --bn:1px solid rgba(0,119,170,.12);
+ --bb:#dddde8;--bh:#d0d0dd;--ob:rgba(0,0,0,.3);--sc:0;--gr:0
 }
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background: var(--bg);
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: clamp(8px, 2vw, 20px);
-    transition: background .4s;
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+ font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+ background:var(--b);min-height:100vh;display:flex;
+ align-items:center;justify-content:center;
+ padding:clamp(8px,2vw,20px);transition:background .4s
 }
-
-.theme-toggle {
-    position: fixed;
-    top: clamp(10px, 2vw, 20px);
-    right: clamp(10px, 2vw, 20px);
-    z-index: 50;
-    width: clamp(38px, 4vw, 44px);
-    height: clamp(38px, 4vw, 44px);
-    border-radius: 50%;
-    border: var(--border-neon);
-    background: var(--surface);
-    color: var(--neon-cyan);
-    font-size: clamp(1rem, 1.5vw, 1.3rem);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background .3s, box-shadow .3s;
-    box-shadow: 0 0 10px rgba(0,240,255,0.1);
+.theme-toggle{
+ position:fixed;top:clamp(10px,2vw,20px);right:clamp(10px,2vw,20px);
+ z-index:50;width:clamp(38px,4vw,44px);height:clamp(38px,4vw,44px);
+ border-radius:50%;border:var(--bn);background:var(--s);color:var(--c);
+ font-size:clamp(1rem,1.5vw,1.3rem);cursor:pointer;display:flex;
+ align-items:center;justify-content:center;transition:.3s;
+ box-shadow:0 0 10px rgba(0,240,255,.1)
 }
-
-.theme-toggle:hover { background: var(--surface2); box-shadow: var(--glow-cyan); }
-
-/* Container */
-.containterReloj {
-    position: relative;
-    background: var(--surface);
-    border: var(--border-neon);
-    width: min(92vw, 820px);
-    height: min(55vh, 420px);
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
-    overflow: hidden;
-    box-shadow: 0 0 30px rgba(0,240,255,0.05), 0 25px 80px rgba(0,0,0,0.6);
-    transition: background .4s, box-shadow .4s;
+.theme-toggle:hover{background:var(--s2);box-shadow:var(--gc)}
+.containterReloj{
+ position:relative;background:var(--s);border:var(--bn);
+ width:min(92vw,820px);height:min(55vh,420px);display:flex;
+ align-items:stretch;overflow:hidden;font-family:'Orbitron','Courier New',monospace;
+ box-shadow:0 0 30px rgba(0,240,255,.05),0 25px 80px rgba(0,0,0,.6);transition:.4s
 }
-
-/* Grid + scan lines */
-.containterReloj::before,
-.containterReloj::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    z-index: 3;
+.containterReloj::before,.containterReloj::after{
+ content:'';position:absolute;inset:0;pointer-events:none;z-index:3
 }
-
-.containterReloj::before {
-    background-image:
-        linear-gradient(rgba(0,240,255,var(--grid)) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,240,255,var(--grid)) 1px, transparent 1px);
-    background-size: 40px 40px;
+.containterReloj::before{
+ background:linear-gradient(rgba(0,240,255,var(--gr))1px,transparent 1px)0 0/40px 40px,
+  linear-gradient(90deg,rgba(0,240,255,var(--gr))1px,transparent 1px)0 0/40px 40px
 }
-
-.containterReloj::after {
-    background: repeating-linear-gradient(0deg,
-        transparent, transparent 2px,
-        rgba(0,240,255,var(--scan)) 2px, rgba(0,240,255,var(--scan)) 4px);
+.containterReloj::after{
+ background:repeating-linear-gradient(0deg,transparent,transparent 2px,
+  rgba(0,240,255,var(--sc))2px,rgba(0,240,255,var(--sc))4px)
 }
-
-/* Action buttons */
-.containterReloj > .Hora,
-.containterReloj > .Alarma {
-    cursor: pointer;
-    flex: 1;
-    height: 100%;
-    border: none;
-    padding: 0;
-    background: var(--btn-bg);
-    color: var(--text);
-    font-size: clamp(.75rem, 1.3vw, 1.1rem);
-    font-weight: 400;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    transform: skew(-10deg) translateX(0);
-    transition: transform .5s cubic-bezier(.22, 1, .36, 1), background .3s;
-    position: relative;
-    z-index: 2;
+.containterReloj>:is(.Hora,.Alarma){
+ cursor:pointer;flex:1;height:100%;border:none;padding:0;
+ background:var(--bb);color:var(--t);
+ font-size:clamp(.75rem,1.3vw,1.1rem);font-weight:400;
+ letter-spacing:4px;text-transform:uppercase;
+ transform:skew(-10deg);
+ transition:transform .5s cubic-bezier(.22,1,.36,1),background .3s;
+ position:relative;z-index:2
 }
-
-.containterReloj > .Hora:hover,
-.containterReloj > .Alarma:hover { background: var(--btn-hover); }
-
-.containterReloj > .Hora:focus-visible,
-.containterReloj > .Alarma:focus-visible {
-    outline: 2px solid var(--neon-cyan);
-    outline-offset: -2px;
+.containterReloj>:is(.Hora,.Alarma):hover{background:var(--bh)}
+.containterReloj>:is(.Hora,.Alarma):focus-visible{
+ outline:2px solid var(--c);outline-offset:-2px
 }
-
-.containterReloj > .Hora.active,
-.containterReloj > .Alarma.active { transform: skew(-10deg) translateX(115%); }
-
-.containterReloj > .Hora.active2,
-.containterReloj > .Alarma.active2 { transform: skew(-10deg) translateX(-115%); }
-
-/* Clock panel */
-.contDate {
-    position: absolute;
-    left: 5%;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 40%;
-    z-index: 1;
-    text-align: center;
-    pointer-events: none;
+.containterReloj>:is(.Hora,.Alarma).active{transform:skew(-10deg) translateX(115%)}
+.containterReloj>:is(.Hora,.Alarma).active2{transform:skew(-10deg) translateX(-115%)}
+.contDate{
+ position:absolute;left:5%;top:50%;transform:translateY(-50%);
+ width:40%;z-index:1;text-align:center;pointer-events:none
 }
-
-.fecha {
-    font-size: clamp(.7rem, 1vw, .85rem);
-    color: var(--neon-yellow);
-    letter-spacing: 3px;
-    margin-bottom: 12px;
-    font-weight: 300;
-    text-transform: uppercase;
-    text-shadow: var(--glow-yellow);
-    transition: color .4s, text-shadow .4s;
+.fecha{
+ font-size:clamp(.7rem,1vw,.85rem);color:var(--y);letter-spacing:3px;
+ margin-bottom:12px;font-weight:300;text-transform:uppercase;
+ text-shadow:var(--gy);transition:.4s
 }
-
-.reloj {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 6px;
+.reloj{display:flex;flex-direction:column;align-items:center;gap:6px}
+.reloj h2{
+ font-size:clamp(3rem,6vw,5.5rem);font-weight:700;color:var(--c);
+ line-height:1;letter-spacing:6px;text-shadow:var(--gc);transition:.4s
 }
-
-.reloj h2 {
-    font-family: 'Orbitron', 'Courier New', monospace;
-    font-size: clamp(3rem, 6vw, 5.5rem);
-    font-weight: 700;
-    color: var(--neon-cyan);
-    line-height: 1;
-    letter-spacing: 6px;
-    text-shadow: var(--glow-cyan);
-    transition: color .4s, text-shadow .4s;
+.reloj p{
+ font-size:clamp(.65rem,1.2vw,1rem);color:var(--t);
+ letter-spacing:6px;display:flex;align-items:center;gap:10px;transition:.4s
 }
-
-.reloj p {
-    font-family: 'Orbitron', 'Courier New', monospace;
-    font-size: clamp(.65rem, 1.2vw, 1rem);
-    color: var(--text);
-    letter-spacing: 6px;
-    font-weight: 400;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    transition: color .4s;
+.reloj p span{color:var(--m);text-shadow:var(--gm);font-weight:700;transition:.4s}
+.ViewAlarms{
+ position:absolute;right:4%;top:50%;transform:translateY(-50%);
+ width:36%;z-index:1;display:flex;flex-direction:column;
+ gap:clamp(10px,1.5vw,14px);pointer-events:none
 }
-
-.reloj p span {
-    color: var(--neon-magenta);
-    text-shadow: var(--glow-magenta);
-    font-weight: 700;
-    transition: color .4s, text-shadow .4s;
+.ViewAlarms>*{pointer-events:auto}
+.alarm-header{
+ font-size:clamp(.55rem,.9vw,.8rem);color:var(--m);letter-spacing:5px;
+ text-shadow:var(--gm);text-align:center;font-weight:700;transition:.4s
 }
-
-/* Alarm panel */
-.ViewAlarms {
-    position: absolute;
-    right: 4%;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 36%;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    gap: clamp(10px, 1.5vw, 14px);
-    pointer-events: none;
+.alarm-input-group{display:flex;gap:clamp(6px,1vw,8px)}
+.inputAlarma{
+ flex:1;background:var(--s3);border:var(--bn);
+ border-radius:clamp(4px,.6vw,8px);
+ padding:clamp(10px,1.5vw,14px);color:var(--c);
+ font-size:clamp(.85rem,1.1vw,1.05rem);text-align:center;
+ cursor:pointer;transition:.3s;color-scheme:dark;
+ min-height:clamp(40px,5vh,50px)
 }
-
-.ViewAlarms > * { pointer-events: auto; }
-
-.alarm-header {
-    font-family: 'Orbitron', monospace;
-    font-size: clamp(.55rem, .9vw, .8rem);
-    color: var(--neon-magenta);
-    letter-spacing: 5px;
-    text-shadow: var(--glow-magenta);
-    text-align: center;
-    font-weight: 700;
-    transition: color .4s, text-shadow .4s;
+.inputAlarma:focus{outline:none;border-color:var(--c);box-shadow:var(--gc)}
+body.light .inputAlarma{color-scheme:light;background:#fff;color:var(--c)}
+.ButtonEnviarAlarma{
+ width:clamp(42px,5vw,54px);background:transparent;color:var(--c);
+ border:var(--bn);border-radius:clamp(4px,.6vw,8px);
+ font-size:clamp(1.2rem,1.8vw,1.6rem);font-weight:300;cursor:pointer;
+ transition:.3s;display:flex;align-items:center;justify-content:center;
+ min-height:clamp(40px,5vh,50px)
 }
-
-.alarm-input-group {
-    display: flex;
-    gap: clamp(6px, 1vw, 8px);
+.ButtonEnviarAlarma:hover{background:rgba(0,240,255,.08);box-shadow:var(--gc)}
+.ListaAlarmas{
+ list-style:none;display:flex;flex-direction:column;gap:6px;
+ max-height:clamp(80px,15vh,140px);overflow-y:auto
 }
-
-.inputAlarma {
-    flex: 1;
-    background: var(--surface3);
-    border: var(--border-neon);
-    border-radius: clamp(4px, .6vw, 8px);
-    padding: clamp(10px, 1.5vw, 14px);
-    color: var(--neon-cyan);
-    font-size: clamp(.85rem, 1.1vw, 1.05rem);
-    font-family: 'Orbitron', 'Courier New', monospace;
-    text-align: center;
-    cursor: pointer;
-    transition: border-color .3s, box-shadow .3s, background .4s;
-    color-scheme: dark;
-    min-height: clamp(40px, 5vh, 50px);
+.ListaAlarmas li{
+ font-size:clamp(.55rem,.9vw,.8rem);color:var(--c);
+ background:rgba(0,240,255,.04);
+ padding:clamp(6px,1vw,10px)clamp(10px,1.5vw,14px);
+ border-left:2px solid var(--m);letter-spacing:3px;
+ transition:background .3s;border-radius:clamp(4px,.5vw,6px)
 }
-
-.inputAlarma:focus {
-    outline: none;
-    border-color: var(--neon-cyan);
-    box-shadow: var(--glow-cyan);
+.ListaAlarmas li:hover{background:rgba(255,0,170,.06)}
+.ListaAlarmas::-webkit-scrollbar{width:3px}
+.ListaAlarmas::-webkit-scrollbar-thumb{background:var(--m);border-radius:2px}
+.AlertAlarm{
+ position:fixed;inset:0;background:var(--ob);
+ backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+ display:none;align-items:center;justify-content:center;z-index:100;transition:.4s
 }
-
-body.light .inputAlarma { color-scheme: light; background: #fff; color: var(--neon-cyan); }
-
-.ButtonEnviarAlarma {
-    width: clamp(42px, 5vw, 54px);
-    background: transparent;
-    color: var(--neon-cyan);
-    border: var(--border-neon);
-    border-radius: clamp(4px, .6vw, 8px);
-    font-size: clamp(1.2rem, 1.8vw, 1.6rem);
-    font-weight: 300;
-    cursor: pointer;
-    transition: background .3s, box-shadow .3s, color .4s, border-color .4s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: clamp(40px, 5vh, 50px);
+.AlertAlarm.show-alert{display:flex}
+.buttonAlertAlarm{
+ font-family:'Orbitron','Courier New',monospace;
+ background:transparent;color:var(--m);border:2px solid var(--m);
+ border-radius:clamp(6px,1vw,12px);
+ padding:clamp(18px,3vh,28px)clamp(32px,6vw,56px);
+ font-size:clamp(.85rem,2vw,1.4rem);font-weight:700;
+ letter-spacing:4px;cursor:pointer;transition:.3s;
+ box-shadow:0 0 20px rgba(255,0,170,.15);
+ animation:ap 1.5s ease-in-out infinite alternate
 }
-
-.ButtonEnviarAlarma:hover { background: rgba(0,240,255,0.08); box-shadow: var(--glow-cyan); }
-
-.ListaAlarmas {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    max-height: clamp(80px, 15vh, 140px);
-    overflow-y: auto;
+.buttonAlertAlarm:hover{background:rgba(255,0,170,.1)}
+@keyframes ap{
+ from{box-shadow:0 0 10px rgba(255,0,170,.1)}
+ to{box-shadow:0 0 30px rgba(255,0,170,.3),0 0 60px rgba(255,0,170,.1)}
 }
-
-.ListaAlarmas li {
-    font-family: 'Orbitron', 'Courier New', monospace;
-    font-size: clamp(.55rem, .9vw, .8rem);
-    color: var(--neon-cyan);
-    background: rgba(0,240,255,0.04);
-    padding: clamp(6px, 1vw, 10px) clamp(10px, 1.5vw, 14px);
-    border-left: 2px solid var(--neon-magenta);
-    letter-spacing: 3px;
-    transition: background .3s;
-    border-radius: clamp(4px, .5vw, 6px);
+@media(max-width:900px)and(orientation:portrait){
+ .containterReloj{flex-direction:column;border-radius:20px}
+ .containterReloj>:is(.Hora,.Alarma){
+  height:50%;width:100%;flex:none;transform:none;
+  letter-spacing:clamp(3px,1vw,5px);display:flex;
+  align-items:center;justify-content:center
+ }
+ .containterReloj>:is(.Hora,.Alarma):active{background:var(--bh)}
+ .containterReloj>:is(.Hora,.Alarma).active{transform:translateY(100%)}
+ .containterReloj>:is(.Hora,.Alarma).active2{transform:translateY(-100%)}
+ .contDate{left:50%;top:8%;transform:translateX(-50%);width:88%}
+ .ViewAlarms{right:auto;left:50%;top:auto;bottom:5%;transform:translateX(-50%);width:85%}
+ .buttonAlertAlarm{
+  box-shadow:0 0 15px rgba(255,0,170,.1);
+  animation:apm 1.5s ease-in-out infinite alternate
+ }
+ @keyframes apm{
+  from{box-shadow:0 0 8px rgba(255,0,170,.1)}
+  to{box-shadow:0 0 20px rgba(255,0,170,.25),0 0 40px rgba(255,0,170,.08)}
+ }
 }
-
-.ListaAlarmas li:hover { background: rgba(255,0,170,0.06); }
-
-.ListaAlarmas::-webkit-scrollbar { width: 3px; }
-
-.ListaAlarmas::-webkit-scrollbar-thumb { background: var(--neon-magenta); border-radius: 2px; }
-
-/* Alert overlay */
-.AlertAlarm {
-    position: fixed;
-    inset: 0;
-    background: var(--overlay-bg);
-    backdrop-filter: blur(6px);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 100;
-    transition: background .4s;
-}
-
-.AlertAlarm.show-alert { display: flex; }
-
-.buttonAlertAlarm {
-    font-family: 'Orbitron', 'Courier New', monospace;
-    background: transparent;
-    color: var(--neon-magenta);
-    border: 2px solid var(--neon-magenta);
-    border-radius: clamp(6px, 1vw, 12px);
-    padding: clamp(18px, 3vh, 28px) clamp(32px, 6vw, 56px);
-    font-size: clamp(.85rem, 2vw, 1.4rem);
-    font-weight: 700;
-    letter-spacing: 4px;
-    cursor: pointer;
-    transition: background .3s, box-shadow .3s, color .4s, border-color .4s;
-    box-shadow: 0 0 20px rgba(255,0,170,0.15);
-    animation: alert-pulse 1.5s ease-in-out infinite alternate;
-}
-
-.buttonAlertAlarm:hover { background: rgba(255,0,170,0.1); }
-
-@keyframes alert-pulse {
-    from { box-shadow: 0 0 10px rgba(255,0,170,0.1); }
-    to { box-shadow: 0 0 30px rgba(255,0,170,0.3), 0 0 60px rgba(255,0,170,0.1); }
-}
-
-/* ===== RESPONSIVE ===== */
-
-/* Portrait: tablet & phone */
-@media (max-width: 900px) and (orientation: portrait) {
-    .containterReloj {
-        flex-direction: column;
-        border-radius: 20px;
-    }
-
-    .containterReloj > .Hora,
-    .containterReloj > .Alarma {
-        height: 50%;
-        width: 100%;
-        flex: none;
-        transform: none;
-        letter-spacing: clamp(3px, 1vw, 5px);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .containterReloj > .Hora:active,
-    .containterReloj > .Alarma:active { background: var(--btn-hover); }
-
-    .containterReloj > .Hora.active,
-    .containterReloj > .Alarma.active { transform: translateY(100%); }
-
-    .containterReloj > .Hora.active2,
-    .containterReloj > .Alarma.active2 { transform: translateY(-100%); }
-
-    .contDate {
-        left: 50%;
-        top: 8%;
-        transform: translateX(-50%);
-        width: 88%;
-    }
-
-    .ViewAlarms {
-        right: auto;
-        left: 50%;
-        top: auto;
-        bottom: 5%;
-        transform: translateX(-50%);
-        width: 85%;
-    }
-
-    .buttonAlertAlarm {
-        box-shadow: 0 0 15px rgba(255,0,170,0.1);
-        animation: alert-pulse-mobile 1.5s ease-in-out infinite alternate;
-    }
-
-    @keyframes alert-pulse-mobile {
-        from { box-shadow: 0 0 8px rgba(255,0,170,0.1); }
-        to { box-shadow: 0 0 20px rgba(255,0,170,0.25), 0 0 40px rgba(255,0,170,0.08); }
-    }
-}
-
-/* Landscape phones */
-@media (max-height: 520px) and (orientation: landscape) {
-    .containterReloj {
-        width: min(94vw, 680px);
-        height: min(82vh, 300px);
-        border-radius: 16px;
-    }
-
-    .containterReloj > .Hora.active,
-    .containterReloj > .Alarma.active { transform: skew(-6deg) translateX(115%); }
-
-    .containterReloj > .Hora.active2,
-    .containterReloj > .Alarma.active2 { transform: skew(-6deg) translateX(-115%); }
-
-    .contDate { width: 35%; }
-    .ViewAlarms { width: 38%; gap: 6px; }
-
-    .ListaAlarmas { max-height: 60px; }
-    .ListaAlarmas li { padding: 4px 8px; }
+@media(max-height:520px)and(orientation:landscape){
+ .containterReloj{width:min(94vw,680px);height:min(82vh,300px);border-radius:16px}
+ .containterReloj>:is(.Hora,.Alarma).active{transform:skew(-6deg) translateX(115%)}
+ .containterReloj>:is(.Hora,.Alarma).active2{transform:skew(-6deg) translateX(-115%)}
+ .contDate{width:35%}
+ .ViewAlarms{width:38%;gap:6px}
+ .ListaAlarmas{max-height:60px}
+ .ListaAlarmas li{padding:4px 8px}
 }
